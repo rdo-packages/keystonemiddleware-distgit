@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -12,6 +12,7 @@ Source0:        https://pypi.python.org/packages/source/k/%{pypi_name}/%{pypi_na
 BuildArch:      noarch
 
 BuildRequires:  python-devel
+BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 
@@ -27,6 +28,8 @@ This package does not expose any CLI or Python API features.
 
 %prep
 %setup -q -n %{pypi_name}-%{version}
+# Let RPM handle the dependencies
+rm -f requirements.txt
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
 
@@ -34,6 +37,7 @@ rm -rf %{pypi_name}.egg-info
 %{__python2} setup.py build
 
 # generate html docs
+export PYTHONPATH="$( pwd ):$PYTHONPATH"
 sphinx-build doc/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
@@ -49,5 +53,10 @@ rm -rf html/.{doctrees,buildinfo}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %changelog
+* Wed Jul 30 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-2
+- add build dep on setuptools
+- fix docs build
+- clear requires from egginfo to let RPM handle the dependencies
+
 * Sun Jul 27 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-1
 - Initial package.
