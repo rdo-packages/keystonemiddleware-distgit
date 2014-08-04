@@ -3,7 +3,7 @@
 
 Name:           python-%{pypi_name}
 Version:        1.0.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -11,7 +11,7 @@ URL:            http://launchpad.net/keystonemiddleware
 Source0:        https://pypi.python.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
@@ -67,7 +67,7 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
-* Mon Aug 04 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-3
+* Mon Aug 04 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-4
 - move docs to -doc subpackage
 - drop tests from the runtime package
 
