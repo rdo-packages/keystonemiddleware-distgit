@@ -2,8 +2,8 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        1.0.0
-Release:        4%{?dist}
+Version:        1.1.1
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -15,7 +15,9 @@ BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
-Requires: python-keystoneclient >= 0.9.0
+Requires: python-keystoneclient >= 0.10.0
+# for s3 and ec2 token middlewares
+Requires: python-webob
 
 
 %description
@@ -67,6 +69,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Wed Aug 27 2014 Alan Pevec <apevec@redhat.com> 1.1.1-1
+- Update to upstream 1.1.1
+
 * Mon Aug 04 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-4
 - move docs to -doc subpackage
 - drop tests from the runtime package
