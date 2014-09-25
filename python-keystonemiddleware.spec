@@ -31,6 +31,7 @@ Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
 
 BuildRequires:  python-sphinx
+BuildRequires:  python-oslo-sphinx
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
@@ -42,6 +43,9 @@ Documentation for the Middleware for OpenStack Identity
 rm -f requirements.txt
 # Remove bundled egg-info
 rm -rf %{pypi_name}.egg-info
+
+# make doc build compatible with python-oslo-sphinx RPM
+sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 %build
 %{__python2} setup.py build
