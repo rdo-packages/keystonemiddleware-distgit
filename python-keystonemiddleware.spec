@@ -15,7 +15,7 @@ BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
-Requires: python-keystoneclient >= 0.10.0
+Requires: python-keystoneclient >= 1:0.10.0
 # for s3 and ec2 token middlewares
 Requires: python-webob
 
