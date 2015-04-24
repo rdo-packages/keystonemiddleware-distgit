@@ -2,20 +2,31 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        1.2.0
+Version:        1.5.0
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
 URL:            http://launchpad.net/keystonemiddleware
 Source0:        https://pypi.python.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+
+Patch0001: 0001-Fix-s3_token-middleware-parsing-insecure-option.patch
+
 BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
-Requires: python-keystoneclient >= 1:0.10.0
+Requires: python-oslo-config >= 1.9.0
+Requires: python-oslo-context >= 0.2.0
+Requires: python-oslo-i18n >= 1.3.0
+Requires: python-oslo-serialization >= 1.2.0
+Requires: python-oslo-utils >= 1.2.0
+Requires: python-pycadf >= 0.8.0
+Requires: python-six >= 1.9.0
+Requires: python-requests >= 2.5.0
+Requires: python-keystoneclient >= 1:1.1.0
 # for s3 and ec2 token middlewares
 Requires: python-webob
 
@@ -39,6 +50,9 @@ Documentation for the Middleware for OpenStack Identity
 
 %prep
 %setup -q -n %{pypi_name}-%{version}
+
+%patch0001 -p1
+
 # Let RPM handle the dependencies
 rm -f requirements.txt
 # Remove bundled egg-info
@@ -73,6 +87,10 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Fri Apr 24 2015 Alan Pevec <alan.pevec@redhat.com> 1.5.0-1
+- Update to upstream 1.5.0
+- S3token incorrect condition expression for ssl_insecure CVE-2015-1852
+
 * Fri Sep 26 2014 Alan Pevec <alan.pevec@redhat.com> 1.2.0-1
 - Update to upstream 1.2.0
 
