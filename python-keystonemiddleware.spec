@@ -2,15 +2,13 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        1.5.0
+Version:        1.5.1
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
 URL:            http://launchpad.net/keystonemiddleware
 Source0:        https://pypi.python.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-
-Patch0001: 0001-Fix-s3_token-middleware-parsing-insecure-option.patch
 
 BuildArch:      noarch
 
@@ -42,7 +40,7 @@ Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
 
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-oslo-sphinx >= 2.3.0
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
@@ -51,15 +49,8 @@ Documentation for the Middleware for OpenStack Identity
 %prep
 %setup -q -n %{pypi_name}-%{version}
 
-%patch0001 -p1
-
 # Let RPM handle the dependencies
 rm -f requirements.txt
-# Remove bundled egg-info
-rm -rf %{pypi_name}.egg-info
-
-# make doc build compatible with python-oslo-sphinx RPM
-sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 %build
 %{__python2} setup.py build
@@ -87,6 +78,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Fri May 01 2015 Alan Pevec <alan.pevec@redhat.com> 1.5.1-1
+- Update to upstream 1.5.1
+
 * Fri Apr 24 2015 Alan Pevec <alan.pevec@redhat.com> 1.5.0-1
 - Update to upstream 1.5.0
 - S3token incorrect condition expression for ssl_insecure CVE-2015-1852
