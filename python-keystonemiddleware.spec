@@ -2,8 +2,8 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        1.5.1
-Release:        2%{?dist}
+Version:        2.2.0
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -16,15 +16,15 @@ BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
-Requires: python-oslo-config >= 1.9.0
+Requires: python-oslo-config >= 2:2.3.0
 Requires: python-oslo-context >= 0.2.0
-Requires: python-oslo-i18n >= 1.3.0
-Requires: python-oslo-serialization >= 1.2.0
-Requires: python-oslo-utils >= 1.2.0
+Requires: python-oslo-i18n >= 1.5.0
+Requires: python-oslo-serialization >= 1.4.0
+Requires: python-oslo-utils >= 2.0.0
 Requires: python-pycadf >= 0.8.0
 Requires: python-six >= 1.9.0
-Requires: python-requests >= 2.5.0
-Requires: python-keystoneclient >= 1:1.1.0
+Requires: python-requests >= 2.5.2
+Requires: python-keystoneclient >= 1:1.6.0
 # for s3 and ec2 token middlewares
 Requires: python-webob
 
@@ -78,6 +78,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Fri Sep 11 2015 Alan Pevec <alan.pevec@redhat.com> 2.2.0-1
+- Update to upstream 2.2.0
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.5.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
