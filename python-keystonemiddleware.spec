@@ -2,7 +2,7 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        2.2.0
+Version:        2.3.0
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
@@ -16,12 +16,13 @@ BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 
+Requires: python-babel >= 1.3
 Requires: python-oslo-config >= 2:2.3.0
 Requires: python-oslo-context >= 0.2.0
 Requires: python-oslo-i18n >= 1.5.0
 Requires: python-oslo-serialization >= 1.4.0
 Requires: python-oslo-utils >= 2.0.0
-Requires: python-pycadf >= 0.8.0
+Requires: python-pycadf >= 1.1.0
 Requires: python-six >= 1.9.0
 Requires: python-requests >= 2.5.2
 Requires: python-keystoneclient >= 1:1.6.0
@@ -78,6 +79,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Fri Sep 18 2015 Alan Pevec <alan.pevec@redhat.com> 2.3.0-1
+- Update to upstream 2.3.0
+
 * Fri Sep 11 2015 Alan Pevec <alan.pevec@redhat.com> 2.2.0-1
 - Update to upstream 2.2.0
 
