@@ -2,7 +2,7 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        2.3.0
+Version:        2.3.1
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
@@ -79,6 +79,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Tue Oct 06 2015 Alan Pevec <alan.pevec@redhat.com> 2.3.1-1
+- Update to upstream 2.3.1
+
 * Fri Sep 18 2015 Alan Pevec <alan.pevec@redhat.com> 2.3.0-1
 - Update to upstream 2.3.0
 
