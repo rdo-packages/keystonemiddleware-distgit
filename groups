@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-6831f191c22e69e791124045b24fc05a446ae629       	keystonemiddleware-distgit-core
-c9a9ff4e6dbf0f5afb1fde547910610ee9fa1aca        	keystonemiddleware-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+6831f191c22e69e791124045b24fc05a446ae629	keystonemiddleware-distgit-core
+c9a9ff4e6dbf0f5afb1fde547910610ee9fa1aca	openstack/keystonemiddleware-distgit-ptl
+global:Registered-Users                 	Registered Users
