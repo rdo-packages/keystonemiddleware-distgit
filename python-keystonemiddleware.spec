@@ -14,6 +14,10 @@ BuildArch:      noarch
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
+# Required to generate sample config automatically in documentation
+BuildRequires:  python-oslo-config
+BuildRequires:  python-keystoneauth1
+BuildRequires:  python-keystoneclient
 
 Requires: python-keystoneclient >= 1:0.10.0
 # for s3 and ec2 token middlewares
