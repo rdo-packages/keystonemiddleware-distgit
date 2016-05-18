@@ -87,3 +87,4 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 
 * Sun Jul 27 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-1
 - Initial package.
+# REMOVEME: error caused by commit 
