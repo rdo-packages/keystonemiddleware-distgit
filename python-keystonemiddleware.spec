@@ -74,20 +74,3 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
-* Fri Sep 26 2014 Alan Pevec <alan.pevec@redhat.com> 1.2.0-1
-- Update to upstream 1.2.0
-
-* Wed Aug 27 2014 Alan Pevec <apevec@redhat.com> 1.1.1-1
-- Update to upstream 1.1.1
-
-* Mon Aug 04 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-4
-- move docs to -doc subpackage
-- drop tests from the runtime package
-
-* Wed Jul 30 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-2
-- add build dep on setuptools
-- fix docs build
-- clear requires from egginfo to let RPM handle the dependencies
-
-* Sun Jul 27 2014 Alan Pevec <apevec@redhat.com> - 1.0.0-1
-- Initial package.
