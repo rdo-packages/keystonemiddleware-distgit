@@ -16,8 +16,10 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 # Required to generate sample config automatically in documentation
 BuildRequires:  python-oslo-config
+BuildRequires:  python-oslo-context
 BuildRequires:  python-keystoneauth1
 BuildRequires:  python-keystoneclient
+BuildRequires:  python-pycadf
 
 Requires: python-keystoneclient >= 1:0.10.0
 # for s3 and ec2 token middlewares
