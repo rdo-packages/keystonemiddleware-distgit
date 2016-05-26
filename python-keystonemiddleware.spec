@@ -4,7 +4,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:           python-%{pypi_name}
-Version:        4.3.0
+Version:        4.4.1
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
@@ -72,6 +72,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Thu May 26 2016 Haikel Guemar <hguemar@fedoraproject.org> 4.4.1-1
+- Update to 4.4.1
+
 * Wed Mar 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 4.3.0-
 - Update to 4.3.0
 
