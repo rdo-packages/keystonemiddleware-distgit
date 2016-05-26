@@ -1,6 +1,8 @@
 # Created by pyp2rpm-1.1.0b
 %global pypi_name keystonemiddleware
 
+%bcond_without doc
+
 Name:           python-%{pypi_name}
 Version:        XXX
 Release:        XXX
@@ -30,6 +32,7 @@ and authorization features to web services other than OpenStack Keystone.
 The most prominent module is keystonemiddleware.auth_token.
 This package does not expose any CLI or Python API features.
 
+%if 0%{?with_doc}
 %package doc
 Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
@@ -39,6 +42,7 @@ BuildRequires:  python-oslo-sphinx
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
+%endif
 
 
 %prep
@@ -51,11 +55,13 @@ rm -rf %{pypi_name}.egg-info
 %build
 %{__python2} setup.py build
 
+%if 0%{?with_doc}
 # generate html docs
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 sphinx-build doc/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
+%endif
 
 
 %install
@@ -70,7 +76,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-*.egg-info
 
+%if 0%{?with_doc}
 %files doc
 %doc html LICENSE
+%endif
 
 %changelog
