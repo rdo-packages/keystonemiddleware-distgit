@@ -77,7 +77,8 @@ rm -r %{buildroot}%{python2_sitelib}/%{pypi_name}/tests
 
 
 %files
-%doc README.rst LICENSE
+%doc README.rst
+%license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-*.egg-info
 
