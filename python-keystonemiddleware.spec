@@ -1,7 +1,7 @@
 # Created by pyp2rpm-1.1.0b
 %global pypi_name keystonemiddleware
 
-%bcond_without doc
+%global with_doc 1
 
 Name:           python-%{pypi_name}
 Version:        XXX
