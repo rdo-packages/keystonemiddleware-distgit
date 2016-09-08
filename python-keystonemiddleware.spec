@@ -8,8 +8,8 @@
 %endif
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        4.9.0
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -163,3 +163,6 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Fri Sep 09 2016 Haikel Guemar <hguemar@fedoraproject.org> 4.9.0-1
+- Update to 4.9.0
+
