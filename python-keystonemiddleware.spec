@@ -34,15 +34,15 @@ BuildRequires:  python-oslo-config
 BuildRequires:  python-keystoneauth1
 BuildRequires:  python-keystoneclient
 
-Requires: python-keystoneclient >= 1:1.6.0
+Requires: python-keystoneclient >= 1:2.0.0
 # for s3 and ec2 token middlewares
 Requires: python-webob >= 1.2.3
-Requires: python-keystoneauth1 >= 2.1.0
-Requires: python-oslo-config >= 3.4.0
-Requires: python-oslo-context >= 0.2.0
+Requires: python-keystoneauth1 >= 2.10.0
+Requires: python-oslo-config >= 2:3.14.0
+Requires: python-oslo-context >= 2.9.0
 Requires: python-oslo-i18n >= 2.1.0
 Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.4.0
+Requires: python-oslo-utils >= 3.16.0
 Requires: python-pbr >= 1.6
 Requires: python-positional >= 1.0.1
 Requires: python-pycadf >= 1.1.0
@@ -69,15 +69,15 @@ BuildRequires:  python3-oslo-config
 BuildRequires:  python3-keystoneauth1
 BuildRequires:  python3-keystoneclient
 
-Requires: python3-keystoneclient >= 1:1.6.0
+Requires: python3-keystoneclient >= 1:2.0.0
 # for s3 and ec2 token middlewares
 Requires: python3-webob >= 1.2.3
-Requires: python3-keystoneauth1 >= 2.1.0
-Requires: python3-oslo-config >= 3.4.0
-Requires: python3-oslo-context >= 0.2.0
+Requires: python3-keystoneauth1 >= 2.10.0
+Requires: python3-oslo-config >= 2:3.14.0
+Requires: python3-oslo-context >= 2.90
 Requires: python3-oslo-i18n >= 2.1.0
 Requires: python3-oslo-serialization >= 1.10.0
-Requires: python3-oslo-utils >= 3.4.0
+Requires: python3-oslo-utils >= 3.16.0
 Requires: python3-pbr >= 1.6
 Requires: python3-positional >= 1.0.1
 Requires: python3-pycadf >= 1.1.0
