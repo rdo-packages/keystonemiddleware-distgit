@@ -2,13 +2,13 @@
 %global pypi_name keystonemiddleware
 
 Name:           python-%{pypi_name}
-Version:        1.5.1
-Release:        2%{?dist}
+Version:        1.5.3
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
 URL:            http://launchpad.net/keystonemiddleware
-Source0:        https://pypi.python.org/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:        https://pypi.io/packages/source/k/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:      noarch
 
@@ -78,6 +78,9 @@ rm -r %{buildroot}%{python_sitelib}/%{pypi_name}/tests
 %doc html LICENSE
 
 %changelog
+* Mon Jan 02 2017 Alan Pevec <alan.pevec@redhat.com> 1.5.3-1
+- Update to 1.5.3
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.5.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
