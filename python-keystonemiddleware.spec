@@ -163,3 +163,4 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/keystonemiddleware/commit/?id=3a36cc2d0a8504a9df77c5a833edc50a88828252
