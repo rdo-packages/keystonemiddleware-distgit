@@ -32,6 +32,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
 # Required to generate sample config automatically in documentation
 BuildRequires:  python-oslo-config
+BuildRequires:  python-oslo-log
 BuildRequires:  python-keystoneauth1
 BuildRequires:  python-keystoneclient
 
@@ -42,6 +43,7 @@ Requires: python-keystoneauth1 >= 2.10.0
 Requires: python-oslo-config >= 2:3.14.0
 Requires: python-oslo-context >= 2.9.0
 Requires: python-oslo-i18n >= 2.1.0
+Requires: python-oslo-log >= 3.11.0
 Requires: python-oslo-serialization >= 1.10.0
 Requires: python-oslo-utils >= 3.16.0
 Requires: python-pbr >= 1.6
@@ -67,6 +69,7 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr
 BuildRequires:  python3-oslo-config
+BuildRequires:  python3-oslo-log
 BuildRequires:  python3-keystoneauth1
 BuildRequires:  python3-keystoneclient
 
@@ -77,6 +80,7 @@ Requires: python3-keystoneauth1 >= 2.10.0
 Requires: python3-oslo-config >= 2:3.14.0
 Requires: python3-oslo-context >= 2.9.0
 Requires: python3-oslo-i18n >= 2.1.0
+Requires: python3-oslo-log >= 3.11.0
 Requires: python3-oslo-serialization >= 1.10.0
 Requires: python3-oslo-utils >= 3.16.0
 Requires: python3-pbr >= 1.6
