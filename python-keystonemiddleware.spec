@@ -8,8 +8,8 @@
 %endif
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        4.14.0
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -167,3 +167,6 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Wed Feb 08 2017 Alfredo Moralejo <amoralej@redhat.com> 4.14.0-1
+- Update to 4.14.0
+
