@@ -30,6 +30,7 @@ Summary:        Middleware for OpenStack Identity
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
+BuildRequires:  git
 # Required to generate sample config automatically in documentation
 BuildRequires:  python-oslo-config
 BuildRequires:  python-oslo-log
@@ -105,7 +106,12 @@ Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
 
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-openstackdocstheme
+BuildRequires:  python-pycadf
+BuildRequires:  python-oslotest
+BuildRequires:  python-testresources
+BuildRequires:  python-oslo-messaging
+BuildRequires:  python-requests-mock
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
@@ -113,7 +119,7 @@ Documentation for the Middleware for OpenStack Identity
 
 
 %prep
-%setup -q -n %{sname}-%{upstream_version}
+%autosetup -n %{sname}-%{upstream_version} -S git
 # Let RPM handle the dependencies
 rm -f requirements.txt
 # Remove bundled egg-info
@@ -127,10 +133,9 @@ rm -rf %{sname}.egg-info
 
 %if 0%{?with_doc}
 # generate html docs
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build doc/source html
+%{__python2} setup.py build_sphinx -b html
 # remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 
@@ -163,7 +168,7 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 
 %if 0%{?with_doc}
 %files doc
-%doc html LICENSE
+%doc doc/build/html LICENSE
 %endif
 
 %changelog
