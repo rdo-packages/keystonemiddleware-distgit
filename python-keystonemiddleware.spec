@@ -107,6 +107,7 @@ Group:      Documentation
 
 BuildRequires:  python-sphinx
 BuildRequires:  python-openstackdocstheme
+BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-pycadf
 BuildRequires:  python-oslotest
 BuildRequires:  python-testresources
