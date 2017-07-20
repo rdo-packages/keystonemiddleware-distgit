@@ -112,6 +112,7 @@ BuildRequires:  python-oslotest
 BuildRequires:  python-testresources
 BuildRequires:  python-oslo-messaging
 BuildRequires:  python-requests-mock
+BuildRequires:  python-webtest
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
