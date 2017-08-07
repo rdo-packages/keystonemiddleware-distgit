@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_07bb2a0f",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-07T13:56:49Z",
+      "side": 1,
+      "message": "1.7.1",
+      "range": {
+        "startLine": 42,
+        "startChar": 26,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "e317bf8effebeae34d480b449a351dc8aa779b18",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_273746b2",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-07T13:56:49Z",
+      "side": 1,
+      "message": "2.0.0",
+      "range": {
+        "startLine": 50,
+        "startChar": 24,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "e317bf8effebeae34d480b449a351dc8aa779b18",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
