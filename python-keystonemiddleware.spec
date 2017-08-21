@@ -124,6 +124,11 @@ rm -f requirements.txt
 # Remove bundled egg-info
 rm -rf %{sname}.egg-info
 
+# disable warning-is-error, this project has intersphinx in docs
+# so some warnings are generated in network isolated build environment
+# as koji
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 %build
 %py2_build
 %if 0%{?with_python3}
