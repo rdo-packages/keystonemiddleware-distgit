@@ -8,8 +8,8 @@
 %endif
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        4.17.0
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
@@ -127,6 +127,11 @@ rm -f requirements.txt
 # Remove bundled egg-info
 rm -rf %{sname}.egg-info
 
+# disable warning-is-error, this project has intersphinx in docs
+# so some warnings are generated in network isolated build environment
+# as koji
+sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
+
 %build
 %py2_build
 %if 0%{?with_python3}
@@ -174,3 +179,6 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Mon Aug 21 2017 Alfredo Moralejo <amoralej@redhat.com> 4.17.0-1
+- Update to 4.17.0
+
