@@ -111,6 +111,7 @@ BuildRequires:  python-testresources
 BuildRequires:  python-oslo-messaging
 BuildRequires:  python-requests-mock
 BuildRequires:  python-webtest
+BuildRequires:  openstack-macros
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
@@ -120,7 +121,7 @@ Documentation for the Middleware for OpenStack Identity
 %prep
 %autosetup -n %{sname}-%{upstream_version} -S git
 # Let RPM handle the dependencies
-rm -f requirements.txt
+%py_req_cleanup
 # Remove bundled egg-info
 rm -rf %{sname}.egg-info
 
