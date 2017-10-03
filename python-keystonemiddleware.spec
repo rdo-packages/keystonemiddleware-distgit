@@ -7,6 +7,12 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+This package contains middleware modules designed to provide authentication \
+and authorization features to web services other than OpenStack Keystone. \
+The most prominent module is keystonemiddleware.auth_token. \
+This package does not expose any CLI or Python API features.
+
 Name:           python-%{sname}
 Version:        XXX
 Release:        XXX
@@ -19,10 +25,7 @@ BuildArch:      noarch
 
 
 %description
-This package contains middleware modules designed to provide authentication
-and authorization features to web services other than OpenStack Keystone.
-The most prominent module is keystonemiddleware.auth_token.
-This package does not expose any CLI or Python API features.
+%{common_desc}
 
 %package -n python2-%{sname}
 Summary:        Middleware for OpenStack Identity
@@ -56,10 +59,7 @@ Requires: python-six >= 1.9.0
 %{?python_provide:%python_provide python2-%{sname}}
 
 %description -n python2-%{sname}
-This package contains middleware modules designed to provide authentication
-and authorization features to web services other than OpenStack Keystone.
-The most prominent module is keystonemiddleware.auth_token.
-This package does not expose any CLI or Python API features.
+%{common_desc}
 
 
 %if 0%{?with_python3}
@@ -93,10 +93,7 @@ Requires: python3-six >= 1.9.0
 %{?python_provide:%python_provide python3-%{sname}}
 
 %description -n python3-%{sname}
-This package contains middleware modules designed to provide authentication
-and authorization features to web services other than OpenStack Keystone.
-The most prominent module is keystonemiddleware.auth_token.
-This package does not expose any CLI or Python API features.
+%{common_desc}
 %endif
 
 
