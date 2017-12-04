@@ -39,6 +39,7 @@ BuildRequires:  python-oslo-config
 BuildRequires:  python-oslo-log
 BuildRequires:  python-keystoneauth1
 BuildRequires:  python-keystoneclient
+BuildRequires:  python-oslo-cache
 
 Requires: python-keystoneclient >= 1:3.8.0
 # for s3 and ec2 token middlewares
@@ -55,6 +56,7 @@ Requires: python-positional >= 1.1.1
 Requires: python-pycadf >= 1.1.0
 Requires: python-requests >= 2.10.0
 Requires: python-six >= 1.9.0
+Requires: python-oslo-cache >= 1.26.0
 
 %{?python_provide:%python_provide python2-%{sname}}
 
@@ -73,6 +75,7 @@ BuildRequires:  python3-oslo-config
 BuildRequires:  python3-oslo-log
 BuildRequires:  python3-keystoneauth1
 BuildRequires:  python3-keystoneclient
+BuildRequires:  python3-oslo-cache
 
 Requires: python3-keystoneclient >= 1:3.8.0
 # for s3 and ec2 token middlewares
@@ -89,6 +92,7 @@ Requires: python3-positional >= 1.1.1
 Requires: python3-pycadf >= 1.1.0
 Requires: python3-requests >= 2.10.0
 Requires: python3-six >= 1.9.0
+Requires: python3-oslo-cache >= 1.26.0
 
 %{?python_provide:%python_provide python3-%{sname}}
 
