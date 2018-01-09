@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa963961_48f113cd",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-01-09T05:07:47Z",
+      "side": 1,
+      "message": "can be removed because of: https://github.com/openstack/keystonemiddleware/commit/6f63f0973545fadb53eec8879c82f727dfdb54f3",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 36
+      },
+      "revId": "98bafe444141b2dc987fd7203de77b010be8432a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa963961_28eecfec",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-01-09T05:07:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 37
+      },
+      "revId": "98bafe444141b2dc987fd7203de77b010be8432a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
