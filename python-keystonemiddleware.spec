@@ -23,6 +23,8 @@ URL:            http://launchpad.net/keystonemiddleware
 Source0:        https://tarballs.openstack.org/%{sname}/%{sname}-%{version}.tar.gz
 BuildArch:      noarch
 
+BuildRequires:  git
+BuildRequires:  openstack-macros
 
 %description
 %{common_desc}
@@ -33,7 +35,6 @@ Summary:        Middleware for OpenStack Identity
 BuildRequires:  python2-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-pbr
-BuildRequires:  git
 # Required to generate sample config automatically in documentation
 BuildRequires:  python-oslo-config
 BuildRequires:  python-oslo-log
@@ -115,7 +116,6 @@ BuildRequires:  python-testresources
 BuildRequires:  python-oslo-messaging
 BuildRequires:  python-requests-mock
 BuildRequires:  python-webtest
-BuildRequires:  openstack-macros
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
