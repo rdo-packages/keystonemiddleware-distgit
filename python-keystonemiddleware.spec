@@ -33,31 +33,34 @@ BuildRequires:  openstack-macros
 Summary:        Middleware for OpenStack Identity
 
 BuildRequires:  python2-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-pbr
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-pbr
 # Required to generate sample config automatically in documentation
-BuildRequires:  python-oslo-config
-BuildRequires:  python-oslo-log
-BuildRequires:  python-keystoneauth1
-BuildRequires:  python-keystoneclient
-BuildRequires:  python-oslo-cache
+BuildRequires:  python2-oslo-config
+BuildRequires:  python2-oslo-log
+BuildRequires:  python2-keystoneauth1
+BuildRequires:  python2-keystoneclient
+BuildRequires:  python2-oslo-cache
 
-Requires: python-keystoneclient >= 1:3.8.0
+Requires: python2-keystoneclient >= 1:3.8.0
 # for s3 and ec2 token middlewares
+Requires: python2-keystoneauth1 >= 3.3.0
+Requires: python2-oslo-config >= 2:5.1.0
+Requires: python2-oslo-context >= 2.19.2
+Requires: python2-oslo-i18n >= 3.15.3
+Requires: python2-oslo-log >= 3.36.0
+Requires: python2-oslo-serialization >= 2.18.0
+Requires: python2-oslo-utils >= 3.33.0
+Requires: python2-pbr >= 2.0.0
+Requires: python2-pycadf >= 1.1.0
+Requires: python2-requests >= 2.14.2
+Requires: python2-six >= 1.10.0
+Requires: python2-oslo-cache >= 1.26.0
+%if 0%{?fedora} > 0
+Requires: python2-webob >= 1.7.1
+%else
 Requires: python-webob >= 1.7.1
-Requires: python-keystoneauth1 >= 3.1.0
-Requires: python-oslo-config >= 2:4.0.0
-Requires: python-oslo-context >= 2.14.0
-Requires: python-oslo-i18n >= 2.1.0
-Requires: python-oslo-log >= 3.22.0
-Requires: python-oslo-serialization >= 1.10.0
-Requires: python-oslo-utils >= 3.20.0
-Requires: python-pbr >= 2.0.0
-Requires: python-positional >= 1.1.1
-Requires: python-pycadf >= 1.1.0
-Requires: python-requests >= 2.10.0
-Requires: python-six >= 1.9.0
-Requires: python-oslo-cache >= 1.26.0
+%endif
 
 %{?python_provide:%python_provide python2-%{sname}}
 
@@ -81,18 +84,17 @@ BuildRequires:  python3-oslo-cache
 Requires: python3-keystoneclient >= 1:3.8.0
 # for s3 and ec2 token middlewares
 Requires: python3-webob >= 1.7.1
-Requires: python3-keystoneauth1 >= 3.1.0
-Requires: python3-oslo-config >= 2:4.0.0
-Requires: python3-oslo-context >= 2.14.0
-Requires: python3-oslo-i18n >= 2.1.0
-Requires: python3-oslo-log >= 3.22.0
-Requires: python3-oslo-serialization >= 1.10.0
-Requires: python3-oslo-utils >= 3.20.0
+Requires: python3-keystoneauth1 >= 3.3.0
+Requires: python3-oslo-config >= 2:5.1.0
+Requires: python3-oslo-context >= 2.19.2
+Requires: python3-oslo-i18n >= 3.15.3
+Requires: python3-oslo-log >= 3.36.0
+Requires: python3-oslo-serialization >= 2.18.0
+Requires: python3-oslo-utils >= 3.33.0
 Requires: python3-pbr >= 2.0.0
-Requires: python3-positional >= 1.1.1
 Requires: python3-pycadf >= 1.1.0
-Requires: python3-requests >= 2.10.0
-Requires: python3-six >= 1.9.0
+Requires: python3-requests >= 2.14.2
+Requires: python3-six >= 1.10.0
 Requires: python3-oslo-cache >= 1.26.0
 
 %{?python_provide:%python_provide python3-%{sname}}
@@ -107,15 +109,15 @@ Requires: python3-oslo-cache >= 1.26.0
 Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
 
-BuildRequires:  python-sphinx
-BuildRequires:  python-openstackdocstheme
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-pycadf
-BuildRequires:  python-oslotest
-BuildRequires:  python-testresources
-BuildRequires:  python-oslo-messaging
-BuildRequires:  python-requests-mock
-BuildRequires:  python-webtest
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-openstackdocstheme
+BuildRequires:  python2-oslo-sphinx
+BuildRequires:  python2-pycadf
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testresources
+BuildRequires:  python2-oslo-messaging
+BuildRequires:  python2-requests-mock
+BuildRequires:  python2-webtest
 
 %description doc
 Documentation for the Middleware for OpenStack Identity
