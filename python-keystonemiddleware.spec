@@ -115,6 +115,7 @@ BuildRequires:  python2-oslo-sphinx
 BuildRequires:  python2-pycadf
 BuildRequires:  python2-oslotest
 BuildRequires:  python2-oslo-messaging
+BuildRequires:  python2-sphinxcontrib-apidoc
 %if 0%{?fedora} > 0
 BuildRequires:  python2-testresources
 BuildRequires:  python2-requests-mock
@@ -150,7 +151,7 @@ sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 
 %if 0%{?with_doc}
 # generate html docs
-%{__python2} setup.py build_sphinx -b html
+sphinx-build -b html doc/source doc/build/html
 # remove the sphinx-build leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
