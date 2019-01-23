@@ -3,7 +3,7 @@
 
 %global with_doc 1
 
-%if 0%{?fedora}
+%if 0%{?fedora} || 0%{?rhel} > 7
 %global with_python3 1
 %endif
 
@@ -56,7 +56,7 @@ Requires: python2-pycadf >= 1.1.0
 Requires: python2-requests >= 2.14.2
 Requires: python2-six >= 1.10.0
 Requires: python2-oslo-cache >= 1.26.0
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 Requires: python2-webob >= 1.7.1
 %else
 Requires: python-webob >= 1.7.1
@@ -116,7 +116,7 @@ BuildRequires:  python2-pycadf
 BuildRequires:  python2-oslotest
 BuildRequires:  python2-oslo-messaging
 BuildRequires:  python2-sphinxcontrib-apidoc
-%if 0%{?fedora} > 0
+%if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  python2-testresources
 BuildRequires:  python2-requests-mock
 BuildRequires:  python2-webtest
