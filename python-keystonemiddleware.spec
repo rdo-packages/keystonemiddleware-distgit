@@ -8,7 +8,7 @@
 %endif
 
 Name:           python-%{sname}
-Version:        4.17.0
+Version:        4.17.1
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
@@ -179,6 +179,9 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Mon Apr 29 2019 RDO <dev@lists.rdoproject.org> 4.17.1-1
+- Update to 4.17.1
+
 * Mon Aug 21 2017 Alfredo Moralejo <amoralej@redhat.com> 4.17.0-1
 - Update to 4.17.0
 
