@@ -111,7 +111,6 @@ Group:      Documentation
 
 BuildRequires:  python2-sphinx
 BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-oslo-sphinx
 BuildRequires:  python2-pycadf
 BuildRequires:  python2-oslotest
 BuildRequires:  python2-oslo-messaging
