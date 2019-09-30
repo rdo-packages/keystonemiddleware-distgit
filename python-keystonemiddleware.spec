@@ -1,11 +1,19 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
+
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global sname keystonemiddleware
 
 %global with_doc 1
-
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global with_python3 1
-%endif
 
 %global common_desc \
 This package contains middleware modules designed to provide authentication \
@@ -29,103 +37,62 @@ BuildRequires:  openstack-macros
 %description
 %{common_desc}
 
-%package -n python2-%{sname}
+%package -n python%{pyver}-%{sname}
 Summary:        Middleware for OpenStack Identity
+%{?python_provide:%python_provide python%{pyver}-%{sname}}
 
-BuildRequires:  python2-devel
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-pbr
+
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-setuptools
+BuildRequires:  python%{pyver}-pbr
 # Required to generate sample config automatically in documentation
-BuildRequires:  python2-oslo-config
-BuildRequires:  python2-oslo-log
-BuildRequires:  python2-keystoneauth1
-BuildRequires:  python2-keystoneclient
-BuildRequires:  python2-oslo-cache
+BuildRequires:  python%{pyver}-oslo-config
+BuildRequires:  python%{pyver}-oslo-log
+BuildRequires:  python%{pyver}-keystoneauth1
+BuildRequires:  python%{pyver}-keystoneclient
+BuildRequires:  python%{pyver}-oslo-cache
 
-Requires: python2-keystoneclient >= 1:3.20.0
+Requires: python%{pyver}-keystoneclient >= 1:3.20.0
 # for s3 and ec2 token middlewares
-Requires: python2-keystoneauth1 >= 3.12.0
-Requires: python2-oslo-config >= 2:5.2.0
-Requires: python2-oslo-context >= 2.19.2
-Requires: python2-oslo-i18n >= 3.15.3
-Requires: python2-oslo-log >= 3.36.0
-Requires: python2-oslo-serialization >= 2.18.0
-Requires: python2-oslo-utils >= 3.33.0
-Requires: python2-pbr >= 2.0.0
-Requires: python2-pycadf >= 1.1.0
-Requires: python2-requests >= 2.14.2
-Requires: python2-six >= 1.10.0
-Requires: python2-oslo-cache >= 1.26.0
-%if 0%{?fedora} || 0%{?rhel} > 7
-Requires: python2-webob >= 1.7.1
-%else
-Requires: python-webob >= 1.7.1
-%endif
+Requires: python%{pyver}-keystoneauth1 >= 3.12.0
+Requires: python%{pyver}-oslo-config >= 2:5.2.0
+Requires: python%{pyver}-oslo-context >= 2.19.2
+Requires: python%{pyver}-oslo-i18n >= 3.15.3
+Requires: python%{pyver}-oslo-log >= 3.36.0
+Requires: python%{pyver}-oslo-serialization >= 2.18.0
+Requires: python%{pyver}-oslo-utils >= 3.33.0
+Requires: python%{pyver}-pbr >= 2.0.0
+Requires: python%{pyver}-pycadf >= 1.1.0
+Requires: python%{pyver}-requests >= 2.14.2
+Requires: python%{pyver}-six >= 1.10.0
+Requires: python%{pyver}-oslo-cache >= 1.26.0
+Requires: python%{pyver}-webob >= 1.7.1
 
-%{?python_provide:%python_provide python2-%{sname}}
-
-%description -n python2-%{sname}
+%description -n python%{pyver}-%{sname}
 %{common_desc}
-
-
-%if 0%{?with_python3}
-%package -n python3-%{sname}
-Summary:        Middleware for OpenStack Identity
-
-BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-BuildRequires:  python3-oslo-config
-BuildRequires:  python3-oslo-log
-BuildRequires:  python3-keystoneauth1
-BuildRequires:  python3-keystoneclient
-BuildRequires:  python3-oslo-cache
-
-Requires: python3-keystoneclient >= 1:3.20.0
-# for s3 and ec2 token middlewares
-Requires: python3-webob >= 1.7.1
-Requires: python3-keystoneauth1 >= 3.12.0
-Requires: python3-oslo-config >= 2:5.2.0
-Requires: python3-oslo-context >= 2.19.2
-Requires: python3-oslo-i18n >= 3.15.3
-Requires: python3-oslo-log >= 3.36.0
-Requires: python3-oslo-serialization >= 2.18.0
-Requires: python3-oslo-utils >= 3.33.0
-Requires: python3-pbr >= 2.0.0
-Requires: python3-pycadf >= 1.1.0
-Requires: python3-requests >= 2.14.2
-Requires: python3-six >= 1.10.0
-Requires: python3-oslo-cache >= 1.26.0
-
-%{?python_provide:%python_provide python3-%{sname}}
-
-%description -n python3-%{sname}
-%{common_desc}
-%endif
 
 
 %if 0%{?with_doc}
-%package doc
+%package -n python-%{sname}-doc
 Summary:    Documentation for the Middleware for OpenStack Identity
 Group:      Documentation
 
-BuildRequires:  python2-sphinx
-BuildRequires:  python2-openstackdocstheme
-BuildRequires:  python2-pycadf
-BuildRequires:  python2-oslotest
-BuildRequires:  python2-oslo-messaging
-BuildRequires:  python2-sphinxcontrib-apidoc
-%if 0%{?fedora} || 0%{?rhel} > 7
-BuildRequires:  python2-testresources
-BuildRequires:  python2-requests-mock
-BuildRequires:  python2-webtest
-%else
-BuildRequires:  python-testresources
-BuildRequires:  python-requests-mock
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-openstackdocstheme
+BuildRequires:  python%{pyver}-pycadf
+BuildRequires:  python%{pyver}-oslotest
+BuildRequires:  python%{pyver}-oslo-messaging
+BuildRequires:  python%{pyver}-sphinxcontrib-apidoc
+BuildRequires:  python%{pyver}-requests-mock
+BuildRequires:  python%{pyver}-testresources
+# Handle python2 exception
+%if %{pyver} == 2
 BuildRequires:  python-webtest
+%else
+BuildRequires:  python%{pyver}-webtest
 %endif
 
-%description doc
+%description -n python-%{sname}-doc
 Documentation for the Middleware for OpenStack Identity
 %endif
 
@@ -143,48 +110,30 @@ rm -rf %{sname}.egg-info
 sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 
 %build
-%py2_build
-%if 0%{?with_python3}
-%py3_build
-%endif
+%{pyver_build}
 
 %if 0%{?with_doc}
 # generate html docs
-sphinx-build -b html doc/source doc/build/html
-# remove the sphinx-build leftovers
+sphinx-build-%{pyver} -b html doc/source doc/build/html
+# remove the sphinx-build-%{pyver} leftovers
 rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 
 %install
-%if 0%{?with_python3}
-%py3_install
+%{pyver_install}
 # Delete tests
-rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
-%endif
-
-%py2_install
-# Delete tests
-rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
+rm -r %{buildroot}%{pyver_sitelib}/%{sname}/tests
 
 
-%files -n python2-%{sname}
+%files -n python%{pyver}-%{sname}
 %doc README.rst
 %license LICENSE
-%{python2_sitelib}/%{sname}
-%{python2_sitelib}/%{sname}-*.egg-info
-
-%if 0%{?with_python3}
-%files -n python3-%{sname}
-%doc README.rst
-%license LICENSE
-%{python3_sitelib}/%{sname}
-%{python3_sitelib}/%{sname}-*.egg-info
-%endif
-
+%{pyver_sitelib}/%{sname}
+%{pyver_sitelib}/%{sname}-*.egg-info
 
 %if 0%{?with_doc}
-%files doc
+%files -n python-%{sname}-doc
 %doc doc/build/html LICENSE
 %endif
 
