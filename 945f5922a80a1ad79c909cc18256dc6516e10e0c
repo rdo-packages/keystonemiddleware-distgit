@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4002756f_deb04109",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-10-01T10:34:18Z",
+      "side": 1,
+      "message": "this can be cleaned up",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "945f5922a80a1ad79c909cc18256dc6516e10e0c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa2be34e_0f41770d",
+        "filename": "python-keystonemiddleware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-10-01T10:34:18Z",
+      "side": 1,
+      "message": "this can be kept unversioned like it was before",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 36
+      },
+      "revId": "945f5922a80a1ad79c909cc18256dc6516e10e0c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
