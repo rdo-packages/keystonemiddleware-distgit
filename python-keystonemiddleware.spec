@@ -14,7 +14,7 @@ The most prominent module is keystonemiddleware.auth_token. \
 This package does not expose any CLI or Python API features.
 
 Name:           python-%{sname}
-Version:        4.21.0
+Version:        4.22.0
 Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
@@ -189,6 +189,9 @@ rm -r %{buildroot}%{python2_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Mon Nov 04 2019 RDO <dev@lists.rdoproject.org> 4.22.0-1
+- Update to 4.22.0
+
 * Sun Feb 11 2018 RDO <dev@lists.rdoproject.org> 4.21.0-1
 - Update to 4.21.0
 
