@@ -1,3 +1,5 @@
+%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
+%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 %global sname keystonemiddleware
@@ -12,13 +14,23 @@ This package does not expose any CLI or Python API features.
 
 Name:           python-%{sname}
 Version:        9.1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        ASL 2.0
 URL:            http://launchpad.net/keystonemiddleware
 Source0:        https://tarballs.openstack.org/%{sname}/%{sname}-%{version}.tar.gz
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+Source101:        https://tarballs.openstack.org/%{sname}/%{sname}-%{version}.tar.gz.asc
+Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
+%endif
 BuildArch:      noarch
+
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+BuildRequires:  /usr/bin/gpgv2
+%endif
 
 BuildRequires:  git
 BuildRequires:  openstack-macros
@@ -83,6 +95,10 @@ Documentation for the Middleware for OpenStack Identity
 
 
 %prep
+# Required for tarball sources verification
+%if 0%{?sources_gpg} == 1
+%{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
+%endif
 %autosetup -n %{sname}-%{upstream_version} -S git
 # Let RPM handle the dependencies
 %py_req_cleanup
@@ -123,6 +139,9 @@ rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Wed Oct 21 2020 Joel Capitao <jcapitao@redhat.com> 9.1.0-2
+- Enable sources tarball validation using GPG signature.
+
 * Fri Sep 18 2020 RDO <dev@lists.rdoproject.org> 9.1.0-1
 - Update to 9.1.0
 
