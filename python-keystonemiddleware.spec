@@ -142,3 +142,4 @@ rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
 * Fri Mar 12 2021 RDO <dev@lists.rdoproject.org> 9.2.0-1
 - Update to 9.2.0
 
+
