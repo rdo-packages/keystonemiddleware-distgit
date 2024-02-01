@@ -142,3 +142,4 @@ rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
 * Wed Sep 14 2022 RDO <dev@lists.rdoproject.org> 10.1.0-1
 - Update to 10.1.0
 
+
