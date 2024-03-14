@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
@@ -15,8 +15,8 @@ The most prominent module is keystonemiddleware.auth_token. \
 This package does not expose any CLI or Python API features.
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        10.6.0
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        Apache-2.0
@@ -75,7 +75,7 @@ Documentation for the Middleware for OpenStack Identity
 # as koji
 sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 
-sed -i /.*-c{env:UPPER_CONSTRAINTS_FILE.*/d tox.ini
+sed -i /.*-c{env:TOX_CONSTRAINTS_FILE.*/d tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 sed -i '/sphinx-build/ s/-W//' tox.ini
@@ -129,4 +129,7 @@ rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Thu Mar 14 2024 RDO <dev@lists.rdoproject.org> 10.6.0-1
+- Update to 10.6.0
+
 
