@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
@@ -15,8 +15,8 @@ The most prominent module is keystonemiddleware.auth_token. \
 This package does not expose any CLI or Python API features.
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        10.7.1
+Release:        1%{?dist}
 Summary:        Middleware for OpenStack Identity
 
 License:        Apache-2.0
@@ -129,4 +129,7 @@ rm -r %{buildroot}%{python3_sitelib}/%{sname}/tests
 %endif
 
 %changelog
+* Wed Sep 18 2024 RDO <dev@lists.rdoproject.org> 10.7.1-1
+- Update to 10.7.1
+
 
