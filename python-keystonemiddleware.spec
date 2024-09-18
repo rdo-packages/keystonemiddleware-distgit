@@ -75,7 +75,7 @@ Documentation for the Middleware for OpenStack Identity
 # as koji
 sed -i 's/^warning-is-error.*/warning-is-error = 0/g' setup.cfg
 
-sed -i /.*-c{env:UPPER_CONSTRAINTS_FILE.*/d tox.ini
+sed -i /.*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 sed -i '/sphinx-build/ s/-W//' tox.ini
